@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uuue and Special</title>
+    <style>
+        body {
+            background-color: #F8E6E5;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            background-color: #F0D8D6;
+            border-radius: 10px;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .header .icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header .icons .icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #E6C5C2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: #FFF0F0;
+            border-radius: 10px;
+        }
+
+        .main .intro {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .main .intro h2 {
+            margin: 0;
+            text-align: center;
+        }
+
+        .main .intro p {
+            text-align: center;
+        }
+
+        .main .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .main .gallery .card {
+            width: 150px;
+            height: 200px;
+            border-radius: 10px;
+            background-color: #F8E6E5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .main .gallery .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .main .gallery .card .name {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .main .button {
+            background-color: #E6C5C2;
+            color: #FFF0F0;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: #F0D8D6;
+            border-radius: 10px;
+        }
+
+        .footer .keyboard {
+            width: 300px;
+        }
+
+        .footer .icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer .icons .icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #E6C5C2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+            .header {
+                flex-direction: column;
+            }
+
+            .header .icons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Uuue and Special</h1>
+            <div class="icons">
+                <div class="icon">1</div>
+                <div class="icon">2</div>
+                <div class="icon">3</div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="intro">
+                <h2>Welcome to our special page!</h2>
+                <p>This page is dedicated to all the amazing women who have made a difference in our lives. We are so
+                    grateful for their strength, courage, and inspiration.</p>
+            </div>
+
+            <div class="gallery">
+                <div class="card">
+                    <img src="https://picsum.photos/150/200" alt="Image 1">
+                    <div class="name">Name 1</div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/150/200" alt="Image 2">
+                    <div class="name">Name 2</div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/150/200" alt="Image 3">
+                    <div class="name">Name 3</div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/150/200" alt="Image 4">
+                    <div class="name">Name 4</div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/150/200" alt="Image 5">
+                    <div class="name">Name 5</div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/150/200" alt="Image 6">
+                    <div class="name">Name 6</div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/150/200" alt="Image 7">
+                    <div class="name">Name 7</div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/150/200" alt="Image 8">
+                    <div class="name">Name 8</div>
+                </div>
+            </div>
+
+            <div class="button">Share Your Story</div>
+        </div>
+
+        <div class="footer">
+            <div class="keyboard">
+                <img src="https://picsum.photos/300/100" alt="Keyboard Image">
+            </div>
+            <div class="icons">
+                <div class="icon">S4</div>
+                <div class="icon">T</div>
+                <div class="icon">B</div>
+            </div>
+        </div>
+    </div>
+    <script>
+    // Add event listeners to the icons in the header
+        const headerIcons = document.querySelectorAll('.header .icons .icon');
+        headerIcons.forEach(icon => {
+            icon.addEventListener('click', () => {
+                // Handle click event for each icon
+                console.log('Icon clicked:', icon.textContent);
+            });
+        });
+
+        // Add event listeners to the cards in the gallery
+        const galleryCards = document.querySelectorAll('.main .gallery .card');
+        galleryCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Handle click event for each card
+                console.log('Card clicked:', card.querySelector('.name').textContent);
+            });
+        });
+
+        // Add event listener to the "Share Your Story" button
+        const shareButton = document.querySelector('.main .button');
+        shareButton.addEventListener('click', () => {
+            // Handle click event for the button
+            console.log('Share Your Story button clicked');
+        });
+
+        // Add event listeners to the icons in the footer
+        const footerIcons = document.querySelectorAll('.footer .icons .icon');
+        footerIcons.forEach(icon => {
+            icon.addEventListener('click', () => {
+                // Handle click event for each icon
+                console.log('Icon clicked:', icon.textContent);
+            });
+        });</script>
+</body>
+
+</html>
+css

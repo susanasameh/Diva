@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/reboot.css">
+    <link rel="stylesheet" href="./css/layouts.css">
+    <link rel="stylesheet" href="./css/animate.min.css">
+
+
+
+    <title>Layouts</title>
+
+    <style>
+#nav_top{
+    background-color: #000000;
+    color: #ffffff;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    height: auto;
+    padding: 10px;
+    
+}
+.main-nav {
+  height: 18vh;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 5%;
+  /* padding: 10px; */
+  position: fixed;
+  top: 40px;
+  z-index: 100;
+}
+#diva-logo {
+  height: 16vh;
+  width: 15vw;
+
+}
+.nav-links {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: space-around;
+  /* font-size: 24px; */
+  color: #333;
+}
+
+.nav-links li {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  border: none;
+  padding: 12px;
+  margin: 10px;
+  gap: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 100%;
+  font-weight: 600;
+}
+
+.nav-links .nav-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: -4px;
+  top: -1px;
+  margin: auto;
+  width: 128px;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(-45deg, #ffcfb3 0%, #b7e0ff 100%);
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-links .nav-link::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #ffcfb3 0%, #b7e0ff 100%);
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+
+.nav-links .nav-link:hover::after {
+  filter: blur(30px);
+}
+
+.nav-links .nav-link:hover::before {
+  transform: rotate(-180deg);
+}
+
+.nav-links .nav-link:active::before {
+  scale: 0.7;
+}
+footer {
+    width: 100%;
+    background-image: url('../images/g.jpg');
+    filter: blur(0.2px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 40%;
+    border-radius: 26px;
+    box-shadow: -13px -13px 19px #d9cece,
+            13px 13px 19px #fff6f6;
+    position : relative;
+    bottom: 0;
+    margin-top: 1px;
+}
+
+.footer {
+    width: 100%;
+    background-color: rgba(175, 175, 175, 0.8);
+        filter: blur(0.2px);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: left;
+    gap: 1%;
+}
+
+.footerSection {
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    padding: 10px;
+
+}
+
+.footerSection a {
+    font-size: 10px;
+    color: white;
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Start Top Nav -->
+        <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+            <div class="container text-light">
+                <div class="w-100 d-flex justify-content-between">
+                    <div>
+                        <i class="fa fa-envelope mx-2"></i>
+                        <a class="navbar-sm-brand text-light text-decoration-none"
+                            href="mailto:info@company.com">Diva@gmail.com</a>
+                        <i class="fa fa-phone mx-2"></i>
+                        <a class="navbar-sm-brand text-light text-decoration-none"
+                            href="tel:010-020-0340">010-020-0340</a>
+                    </div>
+                    <div>
+                        <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored">
+                            <i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                        <a class="text-light" href="https://www.instagram.com/" target="_blank"><i
+                                class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                        <a class="text-light" href="https://twitter.com/" target="_blank"><i
+                                class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                        <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i
+                                class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                        <a class="text-light position-relative text-decoration-none" href="#" target="_blank"><i
+                                class="fa fa-fw fa-cart-arrow-down"></i>
+                            <span
+                                class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span></a>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Close Top Nav -->
+
+
+        <!-- Main Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container main-nav">
+                <a class="navbar-brand" href="#"><img class="animated rubberBand" id="diva-logo"
+                        src="./images/blackDiva.png" alt="" srcset=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse nav-links" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Articles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <!-- main section -->
+
+    <!-- footer section -->
+    <footer>
+    
+        <div class="footer">
+    
+            <div class="footerSection">
+                <h5>Articles</h5>
+                <a href="skincareArticles.html">Skin Care</a>
+                <a href="sportArticles.html">Sport</a>
+                <a href="publicArticle.html">Public</a>
+            </div>
+            <div class="footerSection">
+                <h5>Main</h5>
+                <a href="home.html">Home</a>
+                <a href="aboutUs.html">About Us</a>
+                <a href="contactUs.html">Contact Us</a>
+                <a href="team.html">Our Team</a>
+                <a href="testimonials.html">Testimonials</a>
+            </div>
+            <div class="footerSection">
+                <h5>E-commerce</h5>
+                <a href="skincareEcommerce.html">Skin Care Products</a>
+                <a href="sportwearEcommerce.html">Sport Wear</a>
+                <a href="clothesEcommerce.html">Clothes</a>
+            </div>
+    
+        </div>
+        <h1 style="text-align: center;color:white;font-style: italic;font-family: 'Courier New', Courier, monospace;">
+            Keep
+            your SMILE you are a Diva</h1>
+    </footer>

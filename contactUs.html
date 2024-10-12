@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" class="light-theme">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../styles/contactUs.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <title>Contact Us</title>
+</head>
+
+<body>
+
+    <div class="parent-container">
+        <header>
+            <p>HEADER HERE</p>
+        </header>
+        <main>
+            <section class="addresses">
+                <p class="title">Our Outlet Address! Please Visit Us</p>
+                <div class="address-row">
+                    <div class="col1">
+                        <li>BO Shop</li>
+                        <div class="address-container">
+                            <p class="location">365 Old BO Roma, Ultimate Shop B6</p>
+                            <p class="phone">Call us: +01 23456789</p>
+                        </div>
+                        <div class="time-container">
+                            <p class="days">Assistance hours: Monday - Friday</p>
+                            <p class="phone">9 am to 8</p>
+                        </div>
+
+                    </div>
+                    <div class="col2">
+                        <li>BO Shop</li>
+                        <div class="address-container">
+                            <p class="location">397 Old Arena, Road No.17, USA 1213</p>
+                            <p class="phone">Call us: +01 23456789</p>
+                        </div>
+                        <div class="time-container">
+                            <p class="days">Assistance hours: Monday - Friday</p>
+                            <p class="phone">9 am to 8</p>
+                        </div>
+
+                    </div>
+                    <div class="col3">
+                        <li>BO Shop</li>
+                        <div class="address-container">
+                            <p class="location">London, Road 22, Block Z, UK 123</p>
+                            <p class="phone">Call us: +01 23456789</p>
+                        </div>
+                        <div class="time-container">
+                            <p class="days">Assistance hours: Monday - Friday</p>
+                            <p class="phone">9 am to 8</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="map">
+
+            </section>
+            <section class="ask">
+                <p class="title">Ask Us Any Thing Here</p>
+                <p class="Description">We Are Here To Help You, Be Free!</p>
+                <form action="">
+                    <div class="form-row1">
+                        <div class="left">
+                            <input type="text" id="name" placeholder="Your name here!" required>
+                            <input type="email" id="email" placeholder="Your email here!" required>
+                            <input type="text" id="sub" placeholder="Subject!" required>
+                            <input type="tel" id="name" placeholder="Your Phone Number here!" required>
+                        </div>
+                        <div class="right">
+                            <textarea name="userMsg" id="userMsg" placeholder="Message" required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row2">
+                        <button type="submit">Submit ></button>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <footer>
+            <p>FOOTER HERE</p>
+        </footer>
+    </div>
+
+    <script>
+        var map = L.map('map').setView([51.505, -0.09], 13);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([51.5, -0.09]).addTo(map)
+            .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+            .openPopup();
+    </script>
+
+</body>
+
+</html>

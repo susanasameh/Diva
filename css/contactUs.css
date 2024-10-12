@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=SUSE:wght@100..800&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "SUSE", sans-serif;
+}
+
+body{
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.light-theme{
+    --pink-color-100:#F5D3D3;
+    --pink-color-200:#F1BDBD;
+    --pink-color-300:#EA9D9D;
+    --pink-color-400:#CA6162;
+    
+    --pink-gray-600:#999999;
+    --pink-gray-900:#212121;
+
+    --font-weight-light:300;
+    --font-weight-regular:400;
+    --font-weight-medium:500;
+    --font-weight-semi-bold:600;
+    --font-weight-bold:700;
+    --font-weight-extra-bold:900;
+
+    --font-size-100:12px;
+    --font-size-200:16px;
+    --font-size-300:18px;
+    --font-size-400:28px;
+
+}
+
+.parent-container{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header{
+    background-color: #F1BDBD;
+    height: 80px;
+    width:100vw;
+    position: fixed;
+    top: 0;
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer{
+    background-color: #F1BDBD;
+    height: 300px;
+    width:100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    margin-top: 180px;
+}
+
+.addresses{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+.address-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 100px;
+}
+
+.col1,
+.col2,
+.col3{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.title{
+    color: var(--pink-color-400);
+    font-size: var(--font-size-400);
+    font-weight: var(--font-weight-semi-bold);
+}
+
+li{
+    color: var(--pink-gray-900);
+    font-size: var(--font-size-300);
+    font-weight: var(--font-weight-semi-bold); 
+}
+
+.location,
+.days{
+    color: var(--pink-gray-600);
+    font-size: var(--font-size-300);
+}
+.phone,
+.phone{
+    color: var(--pink-gray-900);
+    font-size: var(--font-size-300);
+}
+
+.ask{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.form-row1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+}
+
+.left{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.right{
+    width: 25%;
+}
+
+.form-row2{
+    text-align: center;
+    margin:32px 0;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='tel']
+{
+    width: calc(100% - 29px);
+    padding: 10px 12px;
+    border: 1px solid #00000020;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    font-size: var(--font-size-200);
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='tel']:focus
+{
+    border: 1px solid var(--pink-color-300);
+    outline: none;
+}
+
+#userMsg{
+    width: calc(100% - 29px);
+    height: calc(100% - 20px);
+    padding: 10px 12px;
+    border: 1px solid #00000020;
+    border-radius: 8px;
+    outline: none;
+    resize: none;
+    transition: all 0.3s ease-in-out;
+    font-size: var(--font-size-200);
+
+}
+
+#userMsg:focus{
+    border: 1px solid var(--pink-color-300);
+    outline: none;
+}
+button{
+    background-color: #E06C6D;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover{
+    box-shadow: none;
+}
+
+#map{
+    width: 70%;
+    height: 30vh;
+    margin: 50px 0;
+}
