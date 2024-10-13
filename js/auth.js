@@ -4,8 +4,20 @@
             getAuth,
             createUserWithEmailAndPassword,
             signInWithEmailAndPassword,
-            onAuthStateChanged
+            onAuthStateChanged,
+            updateProfile
         } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+           
+        import {
+          getFirestore,
+          addDoc,
+          collection,
+          onSnapshot,
+          deleteDoc,
+          doc,
+          updateDoc
+        } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
+
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,7 +35,8 @@
         const app = initializeApp(firebaseConfig);
         // Initialize Authentication
         const auth = getAuth(app);
-
+        // Initialize Firestore
+        const firestore = getFirestore(app);
         //Prevent default form submission to avoid page reload
         document.getElementById('signupForm').addEventListener('submit', function (e) {
                 e.preventDefault();
@@ -74,25 +87,118 @@
                 }
 
             try {
-                await createUserWithEmailAndPassword(auth, regeEmail, regePass);
-                // Handle successful account creation
-                console.log("Account created successfully");
+              // await createUserWithEmailAndPassword(auth, regeEmail, regePass);
+              // // Handle successful account creation
+              // console.log("Account created successfully");
+              // Create user account
+              const userCredential = await createUserWithEmailAndPassword(
+                auth,
+                regeEmail,
+                regePass
+              );
+              const user = userCredential.user;
 
-                // Reset form fields
+              // Update user profile
+              await updateProfile(user, {
+                displayName: regeName.value,
+              });
+
+              //save data in firestore
+              window.saveUsers = saveUsers;
+              async function saveUsers() {
+                var userId = document.getElementById("userId").value;
+                const regeEmail = document.getElementById("regeEmail").value;
+                const regePass = document.getElementById("regePass").value;
+                const regeName = document.getElementById("regeName").value;
+                const regePhone = document.getElementById("regePhone").value;
+
+                var User = {
+                  Name: regeName,
+                  Email: regeEmail,
+                  Phone: regePhone,
+                  Password: regePass,
+                };
+
+                if (userId == "") {
+                  //! save
+                  var res = await addDoc(
+                    collection(firestore, "User"),
+                    product
+                  );
+                  // console.log(res.id);
+                  clear();
+                } else {
+                  //! update
+                  updateDoc(doc(firestore, "User", id), user);
+                  clear();
+                }
+              }
+
+              // Store additional user data in Firestore
+              // await setDoc(doc(firestore, "users", user.uid), {
+              // name: regeName.value,
+              // email: regeEmail.value,
+              // phone: regePhone.value,
+              // });
+
+              // Create user document in Firestore
+              // const userData = {
+              // name: regeName.value || "", // Use an empty string if regeName is undefined
+              // email: regeEmail.value,
+              // phone: regePhone.value || "", // Use an empty string if regePhone is undefined
+              // };
+
+              // await setDoc(doc(Firestore, "users", user.uid), userData);
+
+              console.log("Account created successfully", user);
+
+              // Reset form fields
+              function clear() {
                 document.getElementById("regeEmail").value = "";
                 document.getElementById("regePass").value = "";
                 document.getElementById("regeName").value = "";
                 document.getElementById("regePhone").value = "";
+              }
 
-                //using location
-                onAuthStateChanged(auth, (user) => {
-                    if (user) {
-                       location.assign('../login.html')     
-                    }
-                })
-            
-            
-                } catch (error) {
+              //Delete User
+                window.deleteUser = deleteUser;
+                document.addEventListener("DOMContentLoaded", function () {
+                   async function deleteUser(userId) {
+                     var isAgree = confirm("Are you sure you want to delete ?");
+                     if (isAgree) {
+                       try {
+                         await deleteDoc(doc(firestore, "User", userId));
+                       } catch (error) {
+                         console.log(error);
+                       }
+                     }
+                   }
+                });
+             
+
+              //update User
+              window.updateUser = updateUser;
+              function updateUser(
+                userId,
+                regeName,
+                regeEmail,
+                regePhone,
+                regePass
+              ) {
+                document.getElementById("id").value = userId;
+                document.getElementById("regeName").value = regeName;
+                document.getElementById("regeEmail").value = regeEmail;
+                document.getElementById("regePhone").value = regePhone;
+                document.getElementById("regePass").value = regePass;
+              }
+
+              //using location
+              onAuthStateChanged(auth, (user) => {
+                if (user) {
+                  location.assign("../login.html");
+                }
+              });
+            } catch (error) {
                     // Handle errors here
                     console.error("Error creating account:", error.message);
                 }
@@ -118,7 +224,13 @@
 
 
                 // Export the functions
-                export { createAccount, signIn };
+                export {
+                  createAccount,
+                  signIn,
+                  saveUsers,
+                  deleteUser,
+                  updateUser,
+                };
     
 
 

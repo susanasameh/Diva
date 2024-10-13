@@ -24,6 +24,7 @@
                         <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                     <span>or use your email for registeration</span>
+                    <input type="text" class="form-control" id="userId" hidden>
                     <input type="text" placeholder="Name" id="regeName" name="regeName" required  aria-label="Name">
                     <p id="wrongName" style="display: none;"></p>
                     <input type="email" placeholder="Email" id="regeEmail" name="regeEmail" required>
@@ -69,14 +70,20 @@
         </div>
     </div>
 
+    
+
     <!-- <script src="./js/form.js"></script> -->
     <script type="module" src="./js/auth.js"></script>
     <script type="module">
-        import { createAccount, signIn } from './js/auth.js';
+        import { createAccount, saveUsers, deleteUser, updateUser, signIn } from './js/auth.js';
 
         // Make the functions available globally
         window.createAccount = createAccount;
+        window.saveUsers = saveUsers;
+            window.deleteUser = deleteUser;
+            window.updateUser = updateUser;
         window.signIn = signIn;
+        
     </script>
 
 
