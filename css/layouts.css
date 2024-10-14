@@ -412,7 +412,7 @@ footer {
 .footer {
     width: 100%;
     background-color: rgba(175, 175, 175, 0.8);
-        filter: blur(0.2px);
+      filter: blur(0.2px);
     color: white;
     padding: 20px;
     text-align: center;
@@ -421,6 +421,7 @@ footer {
     justify-content: center;
     align-items: left;
     gap: 1%;
+     border-radius: 26px;
 }
 
 .footerSection {

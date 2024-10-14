@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,115 +10,200 @@
     <link rel="stylesheet" href="../css/all.min.css">
     <link rel="stylesheet" href="../css/reboot.css">
 
-    <title>Dashboard</title>
+    <title>Dash2</title>
+    <style>
+
+    </style>
 </head>
+
 <body>
     <!-- start container -->
     <div class="container-fluid">
-        <!-- start sideNav -->
-        <div class="sideNav container col-3">
-            <!-- start logo -->
-            <div class="logo">
-                <a href="../home.html"><img class="logoImg img-fluid" src="../images/blackDiva.png" alt="" srcset=""></a>
-            </div>
-            <!-- end logo -->
-             <!-- start links -->
-            <div class="asideNav">
-            
-                <ul>
-                    <li class="nav-item"><a class="links" href="userDash.html">Users</a></li>
-                    <li class="nav-item"><a class="links" href="#">Ecommerce</a></li>
-                    <li class="nav-item"><a class="links" href="#">Articles</a></li>
-                    <li class="nav-item"><a class="links" href="#">Contacts</a></li>
-                </ul>
-            </div>
-            </div>
-                <!-- end sideNav -->
-                
-       <!-- start main -->        
-        <main class="main container col-8">
-
-                    <!-- start mainHead -->
-                 <div class="mainHeader">
-                    <div class="search">
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </div>
-                        <div class="welcomeUser">
-                            <span>Welcome, John Doe</span>
-                            <img class="userImg img-fluid" src="../images/customer01.jpg" alt="" srcset="">                           
-                        </div>
-                         <!-- </div> -->
+        <div class="body">
+            <!-- start sideNav -->
+            <div class="sideNav col-lg-3 col-md-4" id="sideNav">
+                <!-- start logo -->
+                <div class="logo">
+                    <a href="../home.html"><img class="logoImg img-fluid" src="../images/blackDiva.png" alt=""
+                            srcset=""></a>
                 </div>
-                    <!-- end mainHead -->
-                    
-                    <!-- start mainSection -->
-                    <div class="mainSection">
-                    
-                        <!-- start table -->
-                        <div class="table">
-                            <table id="table">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Image</th>                                                                              
-                                        <th>Role</th>
-                                        <th>Delete</th>
-                                        <th>Edit</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>John Doe</td>
-                                        <td>johndoe@example.com</td>
-                                        <td>01000000000</td>
-                                        <td> <img src="" alt="" srcset=""></td>
-                                        <td>User</td>
+                <!-- end logo -->
+                <!-- start links -->
+                <div class="asideNav">
+                   
+
+                    <ul class="sidenav-list">
+                        <li class="nav-item"><a class="links" href="userDash.html">Users</a>
+                        <ul class="dropdown-list">
+                            <li><a href="#">Add User</a></li>
+                            <li><a href="#">Update User</a></li>
+                        </ul>
+                        </li>
+                        <li class="nav-item"><a class="links" href="#">Ecommerce</a>
+                            <ul class="dropdown-list">
+                                <li><a href="#">Skincare</a></li>
+                                <li><a href="#">SportWear</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="links" href="#">Articles</a></li>
+                        <li class="nav-item"><a class="links" href="#">Contacts</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end sideNav -->
+
+            <!-- start main -->
+            <main class="main col-lg-9 col-md-8" id="main">
+
+                <!-- start mainHead -->
+                <div class="mainHeader">
+
+                    <div class="toogle">
+                        <button class="toggle-btn" id="toggle-btn">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                    </div>
+                    <div class="search">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+
+                    <div class="welcomeUser">
+                        <span>Welcome, John Doe</span>
+                        <img class="userImg img-fluid" src="../images/customer01.jpg" alt="" srcset="">
+                    </div>
+                </div>
+                <!-- end mainHead -->
+
+                <!-- start mainSection -->
+                <div class="mainSection">
+
+                    <!-- start table -->
+                    <div class="table-responsive col-lg-12 col-md-8">
+                        <table id="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Image</th>
+                                    <th>Country</th>
+                                    <th>Role</th>
+                                    <th>Delete</th>
+                                    <th>Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody id="userTbody">
+                                <tr>
+                                    <td>1</td>
+                                    <td>John Doe</td>
+                                    <td>johndoe@example.com</td>
+                                    <td>01000000000</td>
+                                    <td> <img src="" alt="" srcset=""></td>
+                                    <td>Egypt</td>
+                                    <td>User</td>
                                     <td><a href="#"><i class="fas fa-trash-alt"></i></a>Delete</td>
                                     <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a>Edit</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>John Doe</td>
-                                        <td>johndoe@example.com</td>
-                                        <td>01000000000</td>
-                                        <td> <img src="" alt="" srcset=""></td>
-                                        <td>User</td>
-                                        <td><a href="#"><i class="fas fa-trash-alt"></i></a>Delete</td>
-                                        <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a>Edit</td>
+                                </tr>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>John Doe</td>
+                                    <td>johndoe@example.com</td>
+                                    <td>01000000000</td>
+                                    <td> <img src="" alt="" srcset=""></td>
+                                    <td>Egypt</td>
+                                    <td>User</td>
+                                    <td><a href="#"><i class="fas fa-trash-alt"></i></a>Delete</td>
+                                    <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a>Edit</td>
+                                </tr>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- end table -->
 
-                                    </tr>
-                            </table>
-                        </div>
-                        <!-- end table -->
-                    
-                        <!-- start userTable -->
-                        <div class="userTable"></div>
-                        <!-- end userTable -->
+                    <!-- start hiddenCard -->
+                    <div class="hiddenCard" id="hiddenCard">
+
+                    </div>
+                    <!-- end hiddenCard -->
                 </div>
-                </div>
-            
-                       
+                <!-- end mainSection -->
             </main>
-            <!-- end mainSection -->
-
-            <!-- start footer -->
-            <footer></footer>
-            <!-- end footer -->
-            
+            <!-- end main -->
         </div>
-        <!-- end main -->
+        <!-- start footer -->
+        <footer>
+
+            <div class="footer">
+
+                <div class="footerSection">
+                    <h5>Articles</h5>
+                    <a href="skincareArticles.html">Skin Care</a>
+                    <a href="sportArticles.html">Sport</a>
+                    <a href="publicArticle.html">Public</a>
+                </div>
+                <div class="footerSection">
+                    <h5>Main</h5>
+                    <a href="home.html">Home</a>
+                    <a href="aboutUs.html">About Us</a>
+                    <a href="contactUs.html">Contact Us</a>
+                    <a href="team.html">Our Team</a>
+                    <a href="testimonials.html">Testimonials</a>
+                </div>
+                <div class="footerSection">
+                    <h5>E-commerce</h5>
+                    <a href="skincareEcommerce.html">Skin Care Products</a>
+                    <a href="sportwearEcommerce.html">Sport Wear</a>
+                    <a href="clothesEcommerce.html">Clothes</a>
+                </div>
+
+            </div>
+            <h1
+                style="text-align: center;color:white;font-style: italic;font-family: 'Courier New', Courier, monospace;">
+                Keep
+                your SMILE you are a Diva</h1>
+        </footer>
+        <!-- end footer -->
+
     </div>
     <!-- end container -->
 
-   <!-- start js footer -->
-<script src="../css/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const sideNav = document.getElementById('sideNav');
+        const toggleBtn = document.getElementById('toggle-btn');
+        const main = document.getElementById('main');
+        const table = document.getElementById('table');
+        const hiddenCard = document.getElementById('hiddenCard');
+
+        toggleBtn.addEventListener('click', () => {
+            sideNav.classList.toggle('hidden');
+            main.classList.toggle('col-lg-12');
+            // main.style.height = "80vh";
+            // table.style.width = "80vw";
+            // hiddenCard.style.width = "20vw";
+            if (main.classList.contains('col-lg-12')) {
+                main.style.height = "80vh";
+                table.style.width = "80vw";
+                hiddenCard.style.width = "20vw";
+            } else {
+                main.style.height = ""; // reset to default height
+                table.style.width = ""; // reset to default width
+                hiddenCard.style.width = ""; // reset to default width
+            }
+
+
+            
+        });
+    </script>
+    <!-- start js footer -->
+    <script src="../css/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
     <!-- end js footer -->
-   
+
 </body>
+
 </html>
