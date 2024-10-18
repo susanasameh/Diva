@@ -1,101 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/bootstrap-5.3.3-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/all.min.css">
-    <link rel="stylesheet" href="./css/reboot.css">
-
-
-    <title>test</title>
-
-    <style>
-    header{
-        height: 70vh;
-        background-color: #5aa8fa;
-
-        }
-    nav{
-        height : 100%;
-        width: 100%;
-        background-color: #fdfeff3f;
-        color: white;
-        padding: 10px;
-        font-weight: bold;
-        position: fixed;
-        top: 0;
-        z-index: 999;
-        box-shadow: 0 0 10px rgba(8, 8, 8, 0.2);
-        border-radius: 1%;
-    }
-    .imgLogo{
-        width: 50%;
-        height: 10%;
-        object-fit: contain;
-        margin-left: 20px;
-
-    }
-    .header-title{
-        /* font-size: 10vh; */
-        padding-top: 20%;
-        margin-left: 5vw;
-    }
-    .testimonial-pic{
-         max-height: 50vh;
-    width: 30vw;
-    margin-bottom: -40%;
-    margin-left: 20%;
-    }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <title>Sign Up</title>
 </head>
+
 <body>
-    <!-- <div class="container">
-        <div class="row"> -->
-            <!-- header -->
-            <header class="col-12 justify-content-center">         
-                <!-- headerNavbar --> 
-                 <div>    
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-5 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
-                <a href="#"><img class="img-fluid imgLogo" src="./images/blackDiva.png" alt="" srcset=""></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
-                    </ul>
-                </div>              
-            </nav>
-            </div>
-        <!-- mainHeader -->
-         <div class="col-12 d-flex justify-content-center">
-                <div class="col-md-6">
-                    <h1 class="header-title">Testimonials</h1>
+    <div class="parent-container">
+        <div class="container" id="container">
+            <div class="form-container sign-up">
+                <form action="" method="get" id="signupForm">
+                    <h1>Create Account</h1>
+                    <div class="social-icons">
+                        <a href="contactUs.html" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
-                <div class="col-md-6">
-                    <img src="./images/bg/a-removebg-preview.png" alt="" class="img-fluid testimonial-pic">
+                    <span>or use your email for registration</span>
+                    <input type="text" class="form-control" id="userId" hidden>
+                    <input type="text" placeholder="Name" id="regeName" name="regeName" required aria-label="Name">
+                    <p id="wrongName" style="display: none;"></p>
+                    <input type="email" placeholder="Email" id="regeEmail" name="regeEmail" required>
+                    <p id="wrongEmail" style="display: none;"></p>
+                    <input type="text" placeholder="Phone (Optional)" id="regePhone" name="regePhone" required>
+                    <p id="wrongPhone" style="display: none;"></p>
+                    <input type="password" placeholder="Password" id="regePass" name="regePass" required>
+                    <p id="wrongPass" style="display: none;"></p>
+                    <button type="submit">Sign Up</button>
+                    <div class="image-input-container">
+                        <input type="radio" name="profile-picture" value="default-picture-1" id="default-picture-1">
+                        <label for="default-picture-1">Default Picture 1</label>
+                        <input type="radio" name="profile-picture" value="default-picture-2" id="default-picture-2">
+                        <label for="default-picture-2">Default Picture 2</label>
+                        <input type="file" name="profile-picture" id="upload-picture">
+                        <label for="upload-picture">Upload Picture</label>
+                    </div>
+                    <button id="submit-picture">Submit Picture</button>
+                </form>
+            </div>
+            <div class="form-container sign-in">
+                <form action="" method="post" id="signinForm">
+                    <h1>Sign In</h1>
+                    <div class="social-icons">
+                        <a href="contactUs.html" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                    <span>or use your email password</span>
+                    <input type="email" placeholder="Email" id="signEmail" name="signEmail" required>
+                    <input type="password" placeholder="Password" id="signPass" name="signPass" required>
+                    <a href="#">Forget Your Password?</a>
+                    <button>Sign In</button>
+                </form>
+            </div>
+            <div class="toggle-container">
+                <div class="toggle">
+                    <div class="toggle-panel toggle-left">
+                        <h1>Welcome Back!</h1>
+                        <p>Enter your personal details to use all of site features</p>
+                        <button class="hidden" id="login">Sign In</button>
+                    </div>
+                    <div class="toggle-panel toggle-right">
+                        <h1>Hello, Friend!</h1>
+                        <p>Register with your personal details to use all of site features</p>
+                        <button class="hidden" id="register">Sign Up</button>
+                    </div>
                 </div>
-         </div>
-          
-        </header>
-   <!-- </div> 
-     </div>  -->
-    <script src="./css/bootstrap-5.3.3-dist/js/bootstrap.js"></script>
-    <script src="./js/all.min.js"></script>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="./js/auth.js"></script>
+    <script type="module">
+        import { createAccount, saveUsers, deleteUser, updateUser, signIn } from './js/auth.js';
+        window.createAccount = createAccount;
+        window.saveUsers = saveUsers;
+        window.deleteUser = deleteUser;
+        window.updateUser = updateUser;
+        window.signIn = signIn;
+    </script>
     <script>
-   
+        const imageInputContainer = document.querySelector('.image-input-container');
+        const defaultPictureRadios = document.querySelectorAll('input[name="profile-picture"][type="radio"]');
+        const uploadPictureInput = document.querySelector('input[type="file"][name="profile-picture"]');
+        const submitButton = document.querySelector('#submit-picture');
+
+        submitButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            const selectedPicture = getSelectedPicture();
+            if (selectedPicture) {
+                storePictureInFirestore(selectedPicture);
+            } else {
+                alert('Please select a picture ');
+            }
+        });
+
+        function getSelectedPicture() {
+            for (const radio of defaultPictureRadios) {
+                if (radio.checked) {
+                    return radio.value;
+                }
+            }
+            if (uploadPictureInput.files.length > 0) {
+                return uploadPictureInput.files[0];
+            }
+            return null;
+        }
+
+        function storePictureInFirestore(picture) {
+            const db = firebase.firestore();
+            const userId = firebase.auth().currentUser.uid;
+            db.collection('users').doc(userId).set({
+                profilePicture: picture,
+            }, { merge: true }).then(() => {
+                console.log('Profile picture updated successfully!');
+            }).catch((error) => {
+                console.error('Error updating profile picture:', error);
+            });
+        }
+    </script>
+    <script>
+        
     </script>
 </body>
+
 </html>

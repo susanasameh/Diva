@@ -19,7 +19,7 @@
 <body>
     <!-- start container -->
     <div class="container-fluid">
-        <div class="body">
+        <div class="body" id="">
             <!-- start sideNav -->
             <div class="sideNav col-lg-3 col-md-4" id="sideNav">
                 <!-- start logo -->
@@ -81,7 +81,7 @@
                 <div class="mainSection">
 
                     <!-- start table -->
-                    <div class="table-responsive col-lg-12 col-md-8">
+                    <div class="table-responsive col-lg-12 col-md-8 col-md-6 col-sm-4">
                         <table id="table">
                             <thead>
                                 <tr>
@@ -91,36 +91,16 @@
                                     <th>Phone</th>
                                     <th>Image</th>
                                     <th>Country</th>
-                                    <th>Role</th>
-                                    <th>Delete</th>
+                                    <th>Delete</th>                                    
                                     <th>Edit</th>
+
+                                    
+
                                 </tr>
                             </thead>
                             <tbody id="userTbody">
-                                <tr>
-                                    <td>1</td>
-                                    <td>John Doe</td>
-                                    <td>johndoe@example.com</td>
-                                    <td>01000000000</td>
-                                    <td> <img src="" alt="" srcset=""></td>
-                                    <td>Egypt</td>
-                                    <td>User</td>
-                                    <td><a href="#"><i class="fas fa-trash-alt"></i></a>Delete</td>
-                                    <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a>Edit</td>
-                                </tr>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>John Doe</td>
-                                    <td>johndoe@example.com</td>
-                                    <td>01000000000</td>
-                                    <td> <img src="" alt="" srcset=""></td>
-                                    <td>Egypt</td>
-                                    <td>User</td>
-                                    <td><a href="#"><i class="fas fa-trash-alt"></i></a>Delete</td>
-                                    <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a>Edit</td>
-                                </tr>
-                                </tr>
+                               
+                        
                             </tbody>
                         </table>
                     </div>
@@ -135,6 +115,38 @@
                 <!-- end mainSection -->
             </main>
             <!-- end main -->
+
+            <!-- start hidden form -->
+        <div id="modalWrapper" class="modal-wrapper" style="display:none;">
+            <div class="modal-content">
+                <h2>Edit User</h2>
+                <form id="updateUserForm">
+                    <input type="hidden" id="id" name="id">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="text" class="form-control" id="phone" name="phone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" class="form-control" id="country" name="country" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="file" class="form-control" id="fileInput">
+                        <img id="imgPreview" src="" alt="User Image" width="70" class="img-fluid">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update User</button>
+                </form>
+            </div>
+        </div>
+            <!-- end hidden form -->
         </div>
         <!-- start footer -->
         <footer>
@@ -200,6 +212,26 @@
             
         });
     </script>
+
+<!-- <script type="module" src="../js/firebase/firebaseConfig.js"></script> -->
+
+<script type="module" src="../js/firebase/userDash.js"></script>
+        <script type="module">
+
+            import { deleteUser, updatetUser } from '../js/firebase/userDash.js';
+            // Make the functions available globally
+
+                // window.showUsers = showUsers;
+                window.deleteUser = deleteUser;
+                window.updatetUser = updatetUser;
+
+        </script>
+       
+    
+                   
+                    
+
+   
     <!-- start js footer -->
     <script src="../css/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
     <!-- end js footer -->

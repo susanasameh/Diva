@@ -68,22 +68,6 @@
     color: #ccc;
 }
 
-/* Add toggle button styles */
-.toggle-btn {
-    background-color: #33333300;
-    height: 100%;
-    width: 100%;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    font-size: 24px;
-    cursor: pointer;
-    
-}
-
-.toggle-btn:hover {
-    background-color: #737373;
-}
 
 /* Add dropdown list styles */
 .dropdown-list {
@@ -128,6 +112,22 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     border: 5px groove rgba(0, 0, 0, 0.6);
 }
+/* Add toggle button styles */
+.toggle-btn {
+    background-color: #33333300;
+    height: 100%;
+    width: 100%;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+
+}
+
+.toggle-btn:hover {
+    background-color: #737373;
+}
 
 .search {
     width: 50%;
@@ -167,32 +167,33 @@
 }
 
 #table {
+    position: relative;
     border-collapse: collapse;
     border-radius: 10px;
     width: 100%;
     height: fit-content;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-    font-size: 12px;
+    /* font-size: 12px; */
     border: 5px groove rgba(0, 0, 0, 0.6);
 
 }
 
 #table th {
-    background-color: #f6eacb;
-    color: #000;
+    background-color: #5c5c5c;
+    color: #fff8f8;
     height: 40px;
-    font-size: 18px;
-    border-radius: 5%;
+    font-size: 120%;
+    /* border-radius: 5%; */
     padding: 3px;
-    text-shadow: -4px 3px 1px #CECECE;
+    text-shadow: -4px 3px 1px #27272794;
 }
 
 td {
-    background-color: #87bff3;
+    background-color: #d1e8fd;
     color: #000;
     height: 20px;
     padding: 2px;
-    font-size: 15px;
+    font-size: 100%;
     font-weight: 500;
     white-space: nowrap;
     overflow: hidden;
@@ -200,6 +201,7 @@ td {
     overflow-wrap: break-word;
     hyphens: auto;
 }
+
 
 .hiddenCard {
     width: 20%;
@@ -267,8 +269,6 @@ footer {
         gap: 3px;
     }
 
-    
-
     .sideNav {
         margin-top: 20%;
         flex-direction: row;
@@ -308,6 +308,9 @@ footer {
     .dropdown-list a {
         width: 100%;
     }
+    .main{
+        margin-top: 13%;
+    }
 
         .mainHeader {
             position: fixed;
@@ -319,7 +322,8 @@ footer {
 
     #table {
         width: 90vw;
-        margin-top: 50px;
+        position: unset;
+        /* margin-top: 50px; */
         /* height: 100vh; */
     }
 
@@ -333,4 +337,73 @@ footer {
 
 
 
+}
+
+.modal-wrapper {
+    position: fixed;
+    top: 20%;
+    left: 10%;
+    width: 80%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.915);
+    /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* backdrop-filter: blur(5px); */
+    /* Blurs the background */
+    
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: rgb(12, 12, 12);
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    /* Adjust as needed */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    position: relative;
+    color: #74EBD5;
+    border-radius: 25%;
+}
+.modal-content h2{
+    color: #74EBD5;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+    z-index: 2000;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Ensure the back screen of website behind modal-wrapper gets blurred when modal is active */
+
+
+.modal-content:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+background: rgba(0, 0, 0, 0.74);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    border: 1px solid rgba(0, 0, 0, 0.11);
+    z-index: -1;
+}
+
+* Apply the blur effect to the background */ .blurred {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+/* Ensure modal is unaffected by the blur */
+body.modal-active .modal-wrapper {
+    backdrop-filter: none;
+    /* No blur on the modal itself */
 }

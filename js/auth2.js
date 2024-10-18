@@ -58,51 +58,51 @@ function validatePhone(phone) {
 async function createAccount(e) {
     e.preventDefault();
 
-    const regeEmail = document.getElementById("regeEmail").value;
-    const regePass = document.getElementById("regePass").value;
-    const regeName = document.getElementById("regeName").value;
-    const regePhone = document.getElementById("regePhone").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
 
-    if (!validateEmail(regeEmail)) {
+    if (!validateEmail(email)) {
         document.getElementById("wrongEmail").textContent = "Invalid email format";
         document.getElementById("wrongEmail").style.display = "block";
         return;
     }
 
-    if (!validatePassword(regePass)) {
+    if (!validatePassword(password)) {
         document.getElementById("wrongPass").textContent = "Password must be at least 8 characters long";
         document.getElementById("wrongPass").style.display = "block";
         return;
     }
 
-    if (regePhone && !validatePhone(regePhone)) {
+    if (phone && !validatePhone(phone)) {
         document.getElementById("wrongPhone").textContent = "Invalid phone number format";
         document.getElementById("wrongPhone").style.display = "block";
         return;
     }
 
     try {
-        const userCredential = await createUserWithEmailAndPassword(auth, regeEmail, regePass);
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
 
         await updateProfile(user, {
-            displayName: regeName
+            displayName: name
         });
 
         const userData = {
-            name: regeName,
-            email: regeEmail,
-            phone: regePhone
+            name: name,
+            email: email,
+            phone: phone
         };
 
         await setDoc(doc(firestore, "users", user.uid), userData);
 
         console.log("Account created successfully", user);
 
-        document.getElementById("regeEmail").value = "";
-        document.getElementById("regePass").value = "";
-        document.getElementById("regeName").value = "";
-        document.getElementById("regePhone").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("name").value = "";
+        document.getElementById("phone").value = "";
 
         onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -142,12 +142,12 @@ async function deleteUser(userId) {
 }
 
 // Update User function
-function updateUser(userId, regeName, regeEmail, regePhone, regePass) {
+function updateUser(userId, name, email, phone, password) {
   document.getElementById("id").value = userId;
-  document.getElementById("regeName").value = regeName;
-  document.getElementById("regeEmail").value = regeEmail;
-  document.getElementById("regePhone").value = regePhone;
-  document.getElementById("regePass").value = regePass;
+  document.getElementById("name").value = name;
+  document.getElementById("email").value = email;
+  document.getElementById("phone").value = phone;
+  document.getElementById("password").value = password;
 }
 
 // Set up event listeners for the forms

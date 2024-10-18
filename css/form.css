@@ -242,3 +242,11 @@ p {
 .container.active .toggle-right {
     transform: translateX(200%);
 }
+.progress-bar{
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    background: #ff7c7e;
+    color: #fff;
+    font-size: 14px;
+}
