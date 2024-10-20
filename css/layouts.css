@@ -32,7 +32,10 @@
 #diva-logo {
   height: 16vh;
   width: 15vw;
-  animation: logoAnimate 5s ease 3s 3 reverse forwards;
+  
+}
+#diva-logo:hover{
+  animation: logoAnimate 5s ease 0s 3 reverse forwards;
 }
 
 @keyframes logoAnimate {
@@ -442,10 +445,11 @@
 }
 
 #mainHeader h1 {
-  font-size: 118px;
+  font-size: 110px;
   color: rgb(253, 253, 253);
   font-weight: bold;
   padding-top: 30%;
+  margin-right: 50px;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   font-family: 'Courier New', Courier, monospace;
   animation: myAnim 3s ease 0s 1 normal forwards;
@@ -482,6 +486,52 @@
   }
 }
 
+#homeAbout:hover{
+animation: aboutAnim 2s ease 0s 1 normal forwards;
+}
+@keyframes aboutAnim {
+  0% {
+    animation-timing-function: ease-in;
+    opacity: 0;
+    transform: translateX(-250px);
+  }
+
+  38% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  55% {
+    animation-timing-function: ease-in;
+    transform: translateX(-68px);
+  }
+
+  72% {
+    animation-timing-function: ease-out;
+    transform: translateX(0);
+  }
+
+  81% {
+    animation-timing-function: ease-in;
+    transform: translateX(-28px);
+  }
+
+  90% {
+    animation-timing-function: ease-out;
+    transform: translateX(0);
+  }
+
+  95% {
+    animation-timing-function: ease-in;
+    transform: translateX(-8px);
+  }
+
+  100% {
+    animation-timing-function: ease-out;
+    transform: translateX(0);
+  }
+}
 #homeAboutText {
   font-size: 20px;
   color: rgb(11, 11, 11);
@@ -495,6 +545,7 @@
   font-size: 80px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Courier, monospace;
 }
+
 
 #homeServicesText {
   font-size: 20px;
@@ -824,7 +875,8 @@ p {
 
 .homeTestimonialSection {
   width: 100vw;
-  height: 80vh;
+  /* height: 80vh; */
+  height: auto;
   margin: 2%;
   text-align: center;
   font-size: 20px;
@@ -833,8 +885,9 @@ p {
 
 #homeTestimonial {
   width: 100%;
-  height: 80%;
+  /* height: 80%; */
   margin-bottom: 5%;
+  height: auto;
   text-align: center;
   display: flex;
   flex-direction: row;
@@ -844,17 +897,20 @@ p {
 
 .homeTestimonialPic {
   width: 50%;
-  height: 100%;
-  margin: 5% -15%;
+  /* height: 100%; */
+  margin: 5% -4%;
+  height: auto;
 
 }
 
 .homeTestimonialPic img {
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  /* height: 50%; */
+  height: auto;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   z-index: 1001;
+  
 
 }
 
@@ -862,8 +918,9 @@ p {
 .carousel {
   /* position: relative; */
   width: 50%;
-  height: 100%;
-  max-width: 50vw;
+  /* height: 100%;
+  max-width: 50vw; */
+  height: auto;
   overflow: hidden;
   border-radius: 10px;
   /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
@@ -877,17 +934,18 @@ p {
   /* margin-top: 10%;
   margin-right: 50%; */
   width: 100%;
-  height: 50%;
+  /* height: 50%; */
   /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
 
   /* height: 40%; */
 }
 
 .carousel-card {
-  min-width: 100%;
-  min-height: 100%;
+  /* min-width: 100%;
+  min-height: 100%; */
+  flex: 0 0 100%;
   box-sizing: border-box;
-  /* padding: 20px;   */
+  padding: 10px;  
   border-radius: 10px;
   transition: opacity 0.5s ease;
   margin-top: 10%;
@@ -904,14 +962,15 @@ p {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  position: sticky;
+  /* position: sticky;
   top: -20%;
-  left: -10%;
+  left: -10%; */
 }
 
 .card-content {
   text-align: center;
   padding: 10px;
+  margin: 5%;
 }
 
 .card-title {
@@ -956,6 +1015,19 @@ p {
 
 .next {
   right: 10px;
+}
+@media (max-width: 768px) {
+  .card-description {
+    font-size: 0.9em;
+    /* Smaller size for medium screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .card-description {
+    font-size: 0.6em;
+    /* Even smaller size for small screens */
+  }
 }
 
 .contactUsSectionContainer {
