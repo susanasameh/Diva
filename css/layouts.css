@@ -22,7 +22,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 5%;
+  margin: 1% 2%;
   /* padding: 10px; */
   position: fixed;
   top: 40px;
@@ -135,6 +135,41 @@
 .nav-links .nav-link:active::before {
   scale: 0.7;
 }
+
+.dropdown-menu {
+  display: none;
+  width: auto;
+  margin-top: 5px;
+  position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: #fffefe00;
+    border: #00000000;
+
+ 
+}
+
+.dropdown-menu.show {
+  display: block;
+  /* Show dropdown when active */
+}
+
+.dropdown-item {
+  padding: 10px 15px;
+  /* Padding for items */
+  text-decoration: none;
+  /* Remove underline */
+  display: block;
+  /* Full width */
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+  /* Hover effect */
+}
+
+
+  
 
 /* slider section  */
 

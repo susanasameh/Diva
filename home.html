@@ -57,22 +57,29 @@
     <!-- Main Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container main-nav">
-            <a class="navbar-brand" href="#"><img class="animated rubberBand" id="diva-logo"
-                    src="./images/blackDiva.png" alt="" srcset=""></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">
+                <img class="animated rubberBand" id="diva-logo" src="./images/blackDiva.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" id="navbarToggler" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse nav-links" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="home.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Shop</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="shopDropdown" onclick="toggleDropdown(event)">
+                            Shop
+                        </a>
+                        <ul class="dropdown-menu" id="dropdownMenu">
+                            <li class="nav-item"><a class="nav-link" href="#">Skin Care</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Sport Wear</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Articles</a>
@@ -84,6 +91,7 @@
             </div>
         </div>
     </nav>
+
     <div class="header-content col-12">
             <div class="" id="mainHeader" >
                     <h1 class="header-title">WELCOME TO DIVA</h1>             
@@ -424,6 +432,45 @@
    
 </div>
 </div>
+
+<script>
+    document.getElementById('navbarToggler').onclick = function () {
+        const navbarCollapse = document.getElementById('navbarNav');
+        navbarCollapse.classList.toggle('show'); // Toggle the visibility of the navbar
+
+        // Change toggler appearance based on the state
+        if (navbarCollapse.classList.contains('show')) {
+            this.setAttribute('aria-expanded', 'true');
+        } else {
+            this.setAttribute('aria-expanded', 'false');
+        }
+    };
+
+    function toggleDropdown(event) {
+        event.preventDefault(); // Prevent default link behavior
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        dropdownMenu.classList.toggle('show'); // Toggle the dropdown visibility
+    }
+
+    // Close the dropdown if clicked outside
+    window.onclick = function (event) {
+        if (!event.target.matches('#shopDropdown')) {
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            if (dropdownMenu.classList.contains('show')) {
+                dropdownMenu.classList.remove('show');
+            }
+        }
+
+        // Also close the navbar if clicked outside
+        const navbarCollapse = document.getElementById('navbarNav');
+        if (!navbarCollapse.contains(event.target) && navbarCollapse.classList.contains('show')) {
+            navbarCollapse.classList.remove('show');
+            document.getElementById('navbarToggler').setAttribute('aria-expanded', 'false');
+        }
+    };
+    
+</script>
+
 <script>
     let currentSlide = 0;
         const cards = document.querySelectorAll('.carousel-card');
