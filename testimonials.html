@@ -48,22 +48,29 @@
     <!-- Main Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container main-nav">
-        <a class="navbar-brand" href="#"><img class="animated rubberBand" id="diva-logo" src="./images/blackDiva.png"
-            alt="" srcset=""></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#">
+          <img class="animated rubberBand" id="diva-logo" src="./images/blackDiva.png" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" id="navbarToggler" data-bs-toggle="collapse"
+          data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse nav-links" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="home.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">About</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Shop</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" id="shopDropdown" onclick="toggleDropdown(event)">
+                Shop
+              </a>
+              <ul class="dropdown-menu" id="dropdownMenu">
+                <li class="nav-item"><a class="nav-link" href="#">Skin Care</a></li>
+                <li class="nav-item" style="width:max-content"><a class="nav-link" href="#">Sport Wear</a></li>
+              </ul>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Articles</a>
@@ -111,7 +118,7 @@
                   </p>
                 </div>
                 <div class="personName">
-                  <h4>Ehdaa Ali</h4>
+                  <h4>Amany Ali</h4>
                   <h6>CEO & Founder</h6>
                 </div>
               </div>
@@ -131,7 +138,7 @@
               </div>
               <div class="personData2">
                 <div class="personName2">
-                  <h3>Ehdaa Etft</h3>
+                  <h3>Amany Omar</h3>
                   <h6>CEO & Founder</h6>
                 </div>
                 <div class="">
@@ -168,7 +175,7 @@
           <div class="person4">
             <div class="testimonialCard person-4" id="testimonialGroup">
               <div class="testimonialContent" id="clickImgGroup">
-                <h2>title</h2>
+                <h2>Olga Fares</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel metus non lectus condimentum
                   finibus.
                   Donec
@@ -197,7 +204,7 @@
                   fuga
                   deserunt architecto in placeat minima voluptate exercitationem itaque necessitatibus perferendis culpa
                   nobis officiis iure assumenda. Animi.</p>
-                <h3>aya omar</h3>
+                <h3>Sola omar</h3>
               </div>
             </div>
           </div>
@@ -222,7 +229,7 @@
                   architecto in placeat minima voluptate exercitationem itaque necessitatibus perferendis culpa nobis
                   officiis
                   iure assumenda. Animi.</p>
-                <h3>aya omar</h3>
+                <h3>Sola omar</h3>
               </div>
             </div>
           </div>
@@ -238,7 +245,7 @@
                 <i class="fa fa-star" style="color: rgb(255, 255, 255);"></i>
                 <i class="fa fa-star" style="color: rgb(255, 255, 255);"></i>
                 <i class="fa fa-star" style="color: rgb(255, 255, 255);"></i>
-                <h2>title</h2>
+                <h2>Olga Fares</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel metus non lectus condimentum
                   finibus.
                   Donec
@@ -261,7 +268,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat pariatur aperiam natus debitis unde
                   repellendus iusto dolor excepturi atque mollitia, dolorem adipisci! Eius quia illum veritatis,
                   repudiandae ad suscipit aut.</p>
-                <h3>Hadeer Ahmed</h3>
+                <h3>Basma Ahmed</h3>
               </div>
             </div>
           </div>
@@ -280,7 +287,7 @@
               </div>
               <div class="personData9">
                 <img src="./images/28248cf2c1254f30b886f69c60f655f4.png" alt="" class="personImg">
-                <h3>Hadeer Ahmed</h3>
+                <h3>Basma Ahmed</h3>
                 <h6>CEO & Founder</h6>
 
               </div>
@@ -328,7 +335,7 @@
   </footer>
 
 
-
+<script src="./js/navToggler.js"></script>
   <script src="./css/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
   <script src="./js/script.js"></script>
 </body>

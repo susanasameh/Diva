@@ -78,7 +78,7 @@
                         </a>
                         <ul class="dropdown-menu" id="dropdownMenu">
                             <li class="nav-item"><a class="nav-link" href="#">Skin Care</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Sport Wear</a></li>
+                            <li class="nav-item" style="width:max-content"><a class="nav-link" href="#">Sport Wear</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -219,7 +219,7 @@
                                 </path>
                             </svg>
                         </div>
-                        <button class="button">Contact Me</button>
+                        <button class="button" onclick="window.location.href='team.html'" onclick="window.location.href='team.html'">Contact Me</button>
                     </div>
                 </div>
             </div>
@@ -258,7 +258,7 @@
                                 </path>
                             </svg>
                         </div>
-                        <button class="button">Contact Me</button>
+                        <button class="button" onclick="window.location.href='team.html'">Contact Me</button>
                     </div>
                 </div>
             </div>
@@ -297,7 +297,7 @@
                                 </path>
                             </svg>
                         </div>
-                        <button class="button">Contact Me</button>
+                        <button class="button" onclick="window.location.href='team.html'">Contact Me</button>
                     </div>
                 </div>
             </div>
@@ -336,7 +336,7 @@
                                 </path>
                             </svg>
                         </div>
-                        <button class="button">Contact Me</button>
+                        <button class="button" onclick="window.location.href='team.html'">Contact Me</button>
                     </div>
                 </div>
             </div>
@@ -366,7 +366,7 @@
                                             <div class="card-content">
                                                 <h3 class="card-title">Adam F.</h3>
                                                 <p class="card-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex, cumque debitis voluptate eos magnam deserunt placeat, cupiditate exercitationem corrupti iusto quos incidunt libero voluptatum dolores sint! Perferendis, perspiciatis? Soluta, nesciunt!</p>
-                                                <button class="card-button">See More</button>
+                                                <button class="card-button"  onclick="window.location.href='testimonials.html'">See More</button>
                                             </div>
                                         </div>
                                 
@@ -375,7 +375,7 @@
                                             <div class="card-content">
                                                 <h3 class="card-title">John A.</h3>
                                                 <p class="card-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam quis cupiditate asperiores inventore perferendis, quas, quia vel beatae id qui aperiam pariatur hic nihil quaerat maxime veniam assumenda veritatis nemo?</p>
-                                                <button class="card-button">See More</button>
+                                                <button class="card-button"  onclick="window.location.href='testimonials.html'">See More</button>
                                             </div>
                                         </div>
                                 
@@ -384,7 +384,7 @@
                                             <div class="card-content">
                                                 <h3 class="card-title">Smanta A</h3>
                                                 <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, consectetur cum. Harum delectus consequatur itaque, earum id vel minima corrupti, blanditiis, excepturi eligendi praesentium eaque architecto! Dolorem praesentium eius suscipit.</p>
-                                                <button class="card-button">See More</button>
+                                                <button class="card-button"  onclick="window.location.href='testimonials.html'">See More</button>
                                             </div>
                                         </div>
                                     </div>
@@ -434,43 +434,9 @@
 </div>
 
 <script>
-    document.getElementById('navbarToggler').onclick = function () {
-        const navbarCollapse = document.getElementById('navbarNav');
-        navbarCollapse.classList.toggle('show'); // Toggle the visibility of the navbar
-
-        // Change toggler appearance based on the state
-        if (navbarCollapse.classList.contains('show')) {
-            this.setAttribute('aria-expanded', 'true');
-        } else {
-            this.setAttribute('aria-expanded', 'false');
-        }
-    };
-
-    function toggleDropdown(event) {
-        event.preventDefault(); // Prevent default link behavior
-        const dropdownMenu = document.getElementById('dropdownMenu');
-        dropdownMenu.classList.toggle('show'); // Toggle the dropdown visibility
-    }
-
-    // Close the dropdown if clicked outside
-    window.onclick = function (event) {
-        if (!event.target.matches('#shopDropdown')) {
-            const dropdownMenu = document.getElementById('dropdownMenu');
-            if (dropdownMenu.classList.contains('show')) {
-                dropdownMenu.classList.remove('show');
-            }
-        }
-
-        // Also close the navbar if clicked outside
-        const navbarCollapse = document.getElementById('navbarNav');
-        if (!navbarCollapse.contains(event.target) && navbarCollapse.classList.contains('show')) {
-            navbarCollapse.classList.remove('show');
-            document.getElementById('navbarToggler').setAttribute('aria-expanded', 'false');
-        }
-    };
-    
+   
 </script>
-
+<script src="./js/navToggler.js"></script>
 <script>
     let currentSlide = 0;
         const cards = document.querySelectorAll('.carousel-card');

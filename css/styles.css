@@ -9,7 +9,6 @@
     align-items: center;
     justify-content: center;
   
-
 }
 
 .header-title {
@@ -19,7 +18,18 @@
     padding-top: 20%;
     margin-left: 5vw;
     /* margin-bottom: 40vh; */
+  animation: testiAni 2s ease 0s 1 normal forwards;
+}
+@keyframes testiAni {
+  0% {
+    opacity: 0;
+    transform: translateY(-250px) rotate(-200deg);
+  }
 
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
 }
 
 .header-img {
@@ -185,7 +195,7 @@
   #per-1-img{
  
    /* margin-right: -100%; */
-   margin-left: 15%;
+   margin-left: 5%;
   }
   .person-2{
     display: flex;
