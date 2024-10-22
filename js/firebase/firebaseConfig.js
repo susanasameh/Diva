@@ -12,8 +12,10 @@ import {
   getFirestore,
   addDoc,
   collection,
+  getDoc,
   onSnapshot,
   deleteDoc,
+  setDoc,
   doc,
   updateDoc,
   // query,
@@ -275,6 +277,7 @@ async function saveUsers() {
   var fileInput = document.getElementById("fileInput");
   var file = fileInput.files[0];
   let imageURL = "";
+  let role = "user"; // Default role set to user
 
   if (!validateEmail(email)) {
     document.getElementById("wrongEmail").textContent = "Invalid email format";
@@ -303,6 +306,8 @@ async function saveUsers() {
       password
     );
     const user = userCredential.user;
+
+    const userUid = user.uid; // Get the UID of the authenticated user
 
     // await createUserWithEmailAndPassword(auth, email, password);
 
@@ -334,9 +339,14 @@ async function saveUsers() {
       Country: country,
       Password: password,
       ImageURL: imageURL,
+      Role: role,
     };
 
-    await addDoc(collection(firestore, "User"), userObj);
+    // await addDoc(collection(firestore, "User", userUid), userObj);
+
+    // Correct collection reference: Use the collection "Users" and userUid as the document ID
+    await setDoc(doc(firestore, "Users", userUid), userObj);
+
     alert("Registration successful!");
 
     clear();
@@ -376,13 +386,37 @@ async function signIn() {
   const signPass = document.getElementById("signPass").value;
 
   try {
-    await signInWithEmailAndPassword(auth, signEmail, signPass);
-    console.log("Signed in successfully");
-    location.assign("../admin/userDash.html");
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      signEmail,
+      signPass
+    );
+    const user = userCredential.user;
+    const userUid = user.uid;
+
+    // Fetch the user document from Firestore to check their role
+    const userDoc = await getDoc(doc(firestore, "Users", user.uid));
+
+    if (userDoc.exists()) {
+      const userData = userDoc.data();
+      const userRole = userData.Role;
+
+      if (userRole === "admin") {
+        // Redirect to the admin dashboard
+        window.location.href = "../admin/userDash.html";
+      } else {
+        // Redirect to the user dashboard
+        location.assign("./home.html");
+      }
+    } else {
+      console.error("No such user document found!");
+      alert("User data not found. Please contact support.");
+    }
   } catch (error) {
     console.error("Error signing in:", error.message);
-    alert("please sign up firstly🥰");
-  }
+    alert("Invalid credentials or user does not exist. Please sign up.");
 }
+}
+
 
 export { saveUsers, signIn };

@@ -45,8 +45,8 @@
                                 <li><a href="#">SportWear</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="links" href="#">Articles</a></li>
-                        <li class="nav-item"><a class="links" href="#">Contacts</a></li>
+                       <li class="nav-item"><a class="links" href="#">Contacts</a></li>
+                        <li class="nav-item"><a class="links" href="#" id="logoutBtn">Log Out</a></li>
                     </ul>
                 </div>
             </div>
@@ -70,10 +70,10 @@
                         </form>
                     </div>
 
-                    <div class="welcomeUser">
-                        <span>Welcome, John Doe</span>
-                        <img class="userImg img-fluid" src="../images/customer01.jpg" alt="" srcset="">
-                    </div>
+                <div class="welcomeUser">
+                    <span>Welcome, User</span>
+                    <img class="userImg img-fluid" src="" alt="User Image" />
+                </div>
                 </div>
                 <!-- end mainHead -->
 
@@ -91,6 +91,7 @@
                                     <th>Phone</th>
                                     <th>Image</th>
                                     <th>Country</th>
+                                    <th>Role</th>
                                     <th>Delete</th>                                    
                                     <th>Edit</th>
 
@@ -137,6 +138,10 @@
                     <div class="mb-3">
                         <label for="country" class="form-label">Country</label>
                         <input type="text" class="form-control" id="country" name="country" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="role" class="form-label">Role</label>
+                        <input type="text" class="form-control" id="role" name="role" required>
                     </div>
                     <div class="mb-3">
                         <input type="file" class="form-control" id="fileInput">

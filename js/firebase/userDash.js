@@ -1,10 +1,17 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
 import {
+  getAuth,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+import {
   getFirestore,
   addDoc,
   collection,
+  getDoc,
   onSnapshot,
   deleteDoc,
+  setDoc,
   doc,
   updateDoc,
   // query,
@@ -30,18 +37,105 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+// Initialize Firebase Auth
+const auth = getAuth(app);
 // Initialize Firestore
 const firestore = getFirestore(app);
 // Initialize storage
 const storage = getStorage(app);
 
+let isLoggingOut = false; // This flag will suppress the alert during log-out
+
+// Function to handle user sign-in and sign-out state
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("User is signed in:", user.email);
+    document.getElementById("logoutBtn").style.display = "block"; // Show logout button
+  } else {
+    if (!isLoggingOut) {
+      // Only alert if the user is not in the process of logging out
+      console.log("No user is signed in");
+      // alert("Please sign in first!");
+      window.location.href = "login.html"; // Redirect to login page
+    }
+  }
+});
+
+// Logout function
+function handleLogout() {
+  isLoggingOut = true; // Set the flag before logging out
+  signOut(auth)
+    .then(() => {
+      alert("User logged out successfully!");
+      window.location.href = "../login.html"; // Redirect to login page
+    })
+    .catch((error) => {
+      console.error("Error during logout:", error);
+      alert("Failed to logout. Please try again.");
+    })
+    .finally(() => {
+      isLoggingOut = false; // Reset the flag after log-out process finishes
+    });
+}
+
+// Attach logout function to button
+document.getElementById("logoutBtn").addEventListener("click", handleLogout);
 
 
-// import { showUsers, deleteUser, updateUser } from "./firebaseConfig";
+function fetchSignedInUser() {
+  // Use onAuthStateChanged to ensure Firebase has fully initialized the auth state
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      // The user is signed in, get their UID
+      const userUid = user.uid;
+
+      try {
+        // Fetch the user document from Firestore using their UID
+        const userDoc = await getDoc(doc(firestore, "Users", userUid));
+
+        if (userDoc.exists()) {
+          // Get user data
+          const userData = userDoc.data();
+
+          // Update the DOM with the user's data
+          const userNameElement = document.querySelector(".welcomeUser span");
+          const userImageElement = document.querySelector(".welcomeUser img");
+
+          // Check if these elements exist before updating them
+          if (userNameElement) {
+            userNameElement.textContent = `Welcome, ${userData.Name}`;
+          } else {
+            console.error("User name element not found");
+          }
+
+          if (userImageElement) {
+            userImageElement.src = userData.ImageURL;
+            userImageElement.alt = `${userData.Name}'s profile picture`;
+          } else {
+            console.error("User image element not found");
+          }
+        } else {
+          console.error("No such user document found!");
+          alert("User data not found. Please contact support.");
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+        alert("Failed to fetch user data.");
+      }
+    } else {
+      // No user is signed in
+      console.error("No user is signed in.");
+      // alert("Please sign in first.");
+    }
+  });
+}
+
+// Call this function to fetch the user data after checking if they're signed in
+fetchSignedInUser();
 
 // to fetch data in front side
 function fetchUsers() {
-  onSnapshot(collection(firestore, "User"), function (snapshot) {
+  onSnapshot(collection(firestore, "Users"), function (snapshot) {
     var users = [];
     for (const doc of snapshot.docs) {
       users.push({ id: doc.id, ...doc.data() });
@@ -55,10 +149,32 @@ fetchUsers();
 //showUser Function
 
 function showUsers(users) {
-  var tbody = document.getElementById("userTbody");
-  tbody.innerHTML = "";
+ 
+    // // Get the elements for updating the DOM
+    // const userNameElement = document.querySelector(".welcomeUser span");
+    // const userImageElement = document.querySelector(".welcomeUser img");
+
+    // // Check if these elements exist before updating them
+    // if (userNameElement) {
+    //   userNameElement.textContent = `Welcome, ${userName}`;
+    // } else {
+    //   console.error("User name element not found");
+    // }
+     
+    var tbody = document.getElementById("userTbody");
+    tbody.innerHTML = "";
   for (const user of users) {
-    tbody.innerHTML += `
+      const userNameElement = document.querySelector(".welcomeUser span");
+    const userImageElement = document.querySelector(".welcomeUser img");
+
+    // Check if these elements exist before updating them
+    if (userNameElement) {
+      userNameElement.textContent = `Welcome, ${user.Name}`;
+      userImageElement.src = `${user.ImageURL}`;
+    } else {
+      console.error("User name element not found");
+    }
+      tbody.innerHTML += `
                           <tr>
                               <td>${user.id}</td>
                               <td>${user.Name}</td>
@@ -66,14 +182,16 @@ function showUsers(users) {
                               <td>${user.phone}</td>
                                <td><img src="${user.ImageURL}" alt="Product Image" width="70" ></td>
                               <td>${user.Country}</td>                             
+                              <td>${user.Role}</td>                             
                               <td><button class="btn btn-danger" onClick="deleteUser('${user.id}')">Delete</button></td>
-                              <td><button class="btn btn-success" onClick="updatetUser('${user.id}', '${user.Name}', '${user.Email}', '${user.phone}', '${user.Country}', '${user.ImageURL}')">Edit</button></td>
+                              <td><button class="btn btn-success" onClick="updatetUser('${user.id}', '${user.Name}', '${user.Email}', '${user.phone}', '${user.Country}', '${user.Role}', '${user.ImageURL}')">Edit</button></td>
                                
                           </tr>
                       `;
      
+    }
   }
-}
+
 
 // Delete user function
         window.deleteUser = deleteUser
@@ -81,7 +199,7 @@ function showUsers(users) {
             var isAgree = confirm("Are you sure you want to delete ?")
             if (isAgree) {
                 try {
-                  await deleteDoc(doc(firestore, 'User', id))
+                  await deleteDoc(doc(firestore, 'Users', id))
                 } catch (error) {
                     console.log(error);
                 }
@@ -92,7 +210,7 @@ function showUsers(users) {
       // Update user function (make form visible and pre-fill fields)
 /// Update user function (make form visible and pre-fill fields)
 window.updatetUser = updatetUser;
-function updatetUser(id, name, email, phone, country, imageURL) {
+function updatetUser(id, name, email, phone, country, role, imageURL) {
   // Show the modal
   document.getElementById("modalWrapper").style.display = "flex";
   document.body.classList.add("modal-active");
@@ -106,6 +224,7 @@ function updatetUser(id, name, email, phone, country, imageURL) {
   document.getElementById("phone").value = phone; // Fix: phone (lowercase "p")
 
   document.getElementById("country").value = country;
+  document.getElementById("role").value = role;
   document.getElementById("imgPreview").src = imageURL;
 }
 
@@ -119,6 +238,7 @@ document.getElementById("updateUserForm").addEventListener("submit", async (e) =
   const email = document.getElementById("email").value;
   const phone = document.getElementById("phone").value;
   const country = document.getElementById("country").value;
+  const role = document.getElementById("role").value;
   
   // Handle the image upload if a new image is selected
   const fileInput = document.getElementById("fileInput").files[0];
@@ -133,13 +253,14 @@ document.getElementById("updateUserForm").addEventListener("submit", async (e) =
     }
 
     // Update the user document in Firestore
-    const userDocRef = doc(firestore, "User", id);
+    const userDocRef = doc(firestore, "Users", id);
     await updateDoc(userDocRef, {
       Name: name,
       Email: email,
       phone: phone,
       Country: country,
-      ImageURL: imageURL // Update the image URL if changed
+      ImageURL: imageURL,
+      Role: role// Update the image URL if changed
     });
     
     alert("User updated successfully!");
@@ -155,6 +276,8 @@ document.getElementById("updateUserForm").addEventListener("submit", async (e) =
     alert("Failed to update user.");
   }
 });
+
+
 
 
 export { deleteUser, updatetUser };
